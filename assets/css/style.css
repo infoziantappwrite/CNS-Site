@@ -1,0 +1,437 @@
+
+/*  
+  --------------------------------------------------------------
+  -----      Import 'Inter' font and apply it to body      -----
+  --------------------------------------------------------------
+*/
+
+@import url('font/inter.css');
+
+body {
+    font-family: 'Inter var', sans-serif;
+    font-feature-settings: "cv02","cv03","cv04","cv11";
+}
+
+
+
+
+
+/*  
+  ----------------------------------------------------------------- 
+  -----      Loader animation before displaying the page      -----
+  -----------------------------------------------------------------
+*/
+
+.loader-wrapper {
+    z-index: 2000 !important;
+}
+
+
+
+
+
+/*  
+  --------------------------------------------
+  -----      Top navigation styling      -----
+  --------------------------------------------
+*/
+
+.navigation {
+    z-index: 1030;
+}
+
+header .nav-link.active, header .dropdown-item.active, header .dropdown-toggle.active {
+    color: var(--bs-primary-text-emphasis) !important; 
+    background: var(--bs-primary-bg-subtle) !important;
+}
+
+#bd-theme-light-dark-auto .dropdown-item.active, #bd-theme-light-dark-auto .dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color) !important;
+  background: var(--bs-dropdown-link-active-bg) !important;
+}
+
+
+
+
+
+/*  
+  ------------------------------------------------  
+  -----      Back-to-top button styling      -----
+  ------------------------------------------------
+*/
+
+.btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    display: none;
+    z-index: 2;
+}
+
+[dir="ltr"] .btn-back-to-top {
+    right: 20px;
+}
+
+[dir="rtl"] .btn-back-to-top {
+    left: 20px;
+}
+
+
+
+
+
+/*  
+  -------------------------------------------------  
+  -----      Pulsing play button styling      -----
+  -------------------------------------------------
+*/
+
+.video-play-button {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    box-sizing: content-box;
+    display: block;
+    width: calc(32px + 30px);
+    height: calc(44px + 30px);
+    border-radius: 50%;
+    padding: 18px 20px 18px 28px;
+}
+
+[dir="ltr"] .video-play-button {
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+[dir="rtl"] .video-play-button {
+    right: 50%;
+    transform: translateX(50%) translateY(-50%);
+}
+
+.video-play-button:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: calc(65px + 30px);
+    height: calc(65px + 30px);
+    background: var(--bs-primary);
+    border-radius: 50%;
+    animation: pulseBorder 1500ms ease-out infinite;
+}
+
+.video-play-button:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: calc(50px + 30px);
+    height: calc(50px + 30px);
+    background: var(--bs-primary);
+    border-radius: 50%;
+    transition: all 200ms;
+}
+
+.video-play-button:hover:after {
+    background: rgba(var(--bs-primary-rgb), 0.8);
+}
+
+.video-play-button span {
+    display: block;
+    position: relative;
+    z-index: 2;
+    width: 0;
+    height: 0;
+    border-left: calc(16px + 5px) solid white;
+    border-top: calc(11px + 5px) solid transparent;
+    border-bottom: calc(11px + 5px) solid transparent;
+}
+
+@keyframes pulseBorder {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+/*  
+  --------------------------------------- 
+  -----      Gallery Container      -----
+  ---------------------------------------
+*/
+
+.active-tabs-underline .active {
+    color: var(--bs-primary-text-emphasis) !important;
+}
+
+.gallery-items.gallery-expanded {
+    max-height: none !important;
+}
+
+
+
+
+
+/*  
+  --------------------------------------------------------------------------------
+  -----      Privacy policy and terms of service's active class styling      -----
+  --------------------------------------------------------------------------------
+*/
+
+.sidebar .nav-link.active{
+    color: var(--bs-body-bg) !important;
+    background-color: var(--bs-emphasis-color) !important;
+}
+
+
+
+
+
+/*  
+  --------------------------------------------  
+  -----      Algolia search styling      -----
+  --------------------------------------------
+*/
+
+.search form input {
+    min-width: 100%;
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+}
+
+.search form input:focus {
+    outline: none;
+}
+
+.search mark {
+    color: var(--bs-info-text-emphasis);
+    background-color: transparent;
+}
+
+.ais-Hits-list {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+
+
+/*  
+  -----------------------------------------------------------  
+  -----      Mailchimp: Hidden input field styling      -----
+  -----------------------------------------------------------
+*/
+
+.js-validate-robot {
+    left: -5000px;
+}
+
+
+
+
+
+/*  
+  ------------------------------------------------  
+  -----      Additional classes styling      -----
+  ------------------------------------------------
+*/
+
+.bg-header {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-video-play {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-cta {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.gradient-start {
+    stop-color: var(--bs-gradient-start);
+    stop-opacity: 1;
+}
+
+.gradient-mid {
+    stop-color: var(--bs-gradient-mid);
+    stop-opacity: 1;
+}
+
+.gradient-end {
+    stop-color: var(--bs-gradient-end);
+    stop-opacity: 1;
+}
+
+
+.gradient-header {
+    --bs-gradient-start: var(--bs-primary);
+    --bs-gradient-mid: var(--bs-primary);
+    --bs-gradient-end: var(--bs-tertiary-bg);
+}
+
+.gradient-video-play {
+    --bs-gradient-start: var(--bs-primary);
+    --bs-gradient-mid: var(--bs-primary);
+    --bs-gradient-end: var(--bs-body-bg);
+}
+
+.gradient-speakers {
+    --bs-gradient-start: var(--bs-primary);
+    --bs-gradient-mid: var(--bs-primary);
+    --bs-gradient-end: var(--bs-body-bg);
+}
+
+.gradient-testimonials {
+    --bs-gradient-start: var(--bs-primary);
+    --bs-gradient-mid: var(--bs-primary);
+    --bs-gradient-end: var(--bs-body-bg);
+}
+
+.gradient-clients {
+    --bs-gradient-start: var(--bs-primary);
+    --bs-gradient-mid: var(--bs-primary);
+    --bs-gradient-end: var(--bs-tertiary-bg);
+}
+
+.gradient-stats {
+    --bs-gradient-start: var(--bs-primary);
+    --bs-gradient-mid: var(--bs-primary);
+    --bs-gradient-end: var(--bs-body-bg);
+}
+
+.gradient-cta {
+    --bs-gradient-start: var(--bs-primary);
+    --bs-gradient-mid: var(--bs-primary);
+    --bs-gradient-end: var(--bs-body-bg);
+}
+
+.gradient-footer {
+    --bs-gradient-start: var(--bs-primary);
+    --bs-gradient-mid: var(--bs-primary);
+    --bs-gradient-end: var(--bs-body-bg);
+}
+
+.gradient-others-light {
+    --bs-gradient-start: var(--bs-primary-text-emphasis);
+    --bs-gradient-mid: var(--bs-primary);
+    --bs-gradient-end: var(--bs-body-bg);
+}
+
+.gradient-others-dark {
+    --bs-gradient-start: var(--bs-primary);
+    --bs-gradient-mid: var(--bs-primary);
+    --bs-gradient-end: var(--bs-body-bg);
+}
+
+@media (min-width: 1200px) {
+    .min-w-dropdown-xl {
+        --bs-dropdown-min-width: 40rem;
+    }  
+}
+
+.img-scale-up-hover img {
+    transition: transform 1s ease-in-out;
+}
+
+.img-scale-up-hover:hover img {
+    transform: scale(1.25);
+}
+
+::selection {
+    background: var(--bs-primary);
+    color: var(--bs-black);
+}
+
+::-moz-selection {
+    background: var(--bs-primary);
+    color: var(--bs-black);
+}
+
+
+
+
+
+/*  
+  ---------------------------------------------------------------------------------------  
+  -----      AOS (Animate on Scroll) library for right-to-left (RTL) languages      -----
+  ---------------------------------------------------------------------------------------
+*/
+
+[dir="rtl"] [data-aos=fade-left] {
+    transform: translate3d(-100px, 0, 0);
+}
+[dir="rtl"] [data-aos=fade-right] {
+    transform: translate3d(100px, 0, 0); 
+}
+
+[dir="rtl"] [data-aos=fade-up-left] {
+    transform: translate3d(-100px, 100px, 0); 
+}
+[dir="rtl"] [data-aos=fade-up-right] {
+    transform: translate3d(100px, 100px, 0); 
+}
+
+[dir="rtl"] [data-aos=fade-down-left] {
+    transform: translate3d(-100px,-100px,0); 
+}
+[dir="rtl"] [data-aos=fade-down-right] {
+    transform: translate3d(100px, -100px, 0); 
+}
+
+[dir="rtl"] [data-aos=flip-right] {
+    transform: perspective(2500px) rotateY(-100deg);
+}
+[dir="rtl"] [data-aos=flip-left] {
+    transform: perspective(2500px) rotateY(100deg);
+}
+[dir="rtl"] [data-aos=flip-right].aos-animate {
+    transform: perspective(2500px) rotateY(0);
+}
+[dir="rtl"] [data-aos=flip-left].aos-animate {
+    transform: perspective(2500px) rotateY(0);
+}
+
+[dir="rtl"] [data-aos=slide-left] {
+    transform: translate3d(-100%,0,0);
+}
+[dir="rtl"] [data-aos=slide-right] {
+    transform: translate3d(100%,0,0);
+}
+
+[dir="rtl"] [data-aos=zoom-in-right] {
+    transform: translate3d(100px,0,0) scale(.6);
+}
+[dir="rtl"] [data-aos=zoom-in-left] {
+    transform: translate3d(-100px,0,0) scale(.6);
+}
+
+[dir="rtl"] [data-aos=zoom-out-right] {
+    transform: translate3d(100px,0,0) scale(1.2);
+}
+[dir="rtl"] [data-aos=zoom-out-left] {
+    transform: translate3d(-100px,0,0) scale(1.2);
+}
+
+
+
+
