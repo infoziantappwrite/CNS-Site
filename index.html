@@ -85,6 +85,25 @@
     <link rel="canonical" href="your_canonical_url_goes_here.html">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
+    <style>
+        .submenu {
+            min-width: 220px;
+            z-index: 9999;
+        }
+
+        .submenu::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: -8px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 8px solid #ffffff;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -170,7 +189,8 @@
                                         Services
                                     </button>
 
-                                    <div class="dropdown-menu dropdown-menu-start dropdown-menu-hover start-0 shadow mt-0 rounded-4 px-4 py-4"
+                                    <div class="dropdown-menu dropdown-menu-start dropdown-menu-hover start-0 shadow mt-0  rounded-4 px-4 py-4"
+
                                         data-bs-theme="light">
                                         <div class="d-none d-xl-block">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -189,47 +209,64 @@
                                                     Services Overview
                                                 </a>
                                             </li>
-
-                                            <li>
-                                                <a href="InteriorAndExterior.html"
-                                                    class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
-                                                    Interior & exterior
-                                                </a>
+                                            <li
+                                                class="position-relative rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                                <div
+                                                    class="submenu-toggle btn w-100 text-start  dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                                    Facility Management
+                                                </div>
+                                                <ul
+                                                    class="submenu list-unstyled position-absolute top-0 start-100 mt-0 ms-2 px-3 py-3 bg-white shadow rounded-4 d-none">
+                                                    <li><a href="#"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body text-hover-primary">Building
+                                                            Operations</a></li>
+                                                    <li><a href="#"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body text-hover-primary">Cleaning
+                                                            & Maintenance</a></li>
+                                                    <li><a href="#"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body text-hover-primary">Technical
+                                                            Services</a></li>
+                                                </ul>
                                             </li>
 
-                                            <li>
-                                                <a href="HomePainting.html"
-                                                    class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
-                                                    Home Painting
-                                                </a>
+                                            <!-- Flyout Item: Construction & Renovation -->
+                                            <li class="position-relative">
+                                                <div
+                                                    class="submenu-toggle btn w-100 text-start  dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                                    Construction & Renovation
+                                                </div>
+                                                <ul
+                                                    class="submenu list-unstyled position-absolute top-0 start-100 mt-0 ms-2 px-3 py-3 bg-white shadow rounded-4 d-none">
+                                                    <li><a href="#"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body text-hover-primary">Interior
+                                                            Solutions</a></li>
+                                                    <li><a href="#"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body text-hover-primary">Exterior
+                                                            Services</a></li>
+                                                    <li><a href="#"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body text-hover-primary">Specialized
+                                                            Works</a></li>
+                                                </ul>
                                             </li>
+                                            <!-- Maintenance Services -->
 
-                                            <li>
-                                                <a href="ModularKitchen.html"
-                                                    class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
-                                                    Modular kitchen
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="HouseKeeping.html"
-                                                    class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
-                                                    House keeping services
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="MosquitoNets.html"
-                                                    class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
-                                                    Mosquito nets
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="WaterProofing.html"
-                                                    class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
-                                                    Water proofing services
-                                                </a>
+                                            <li class="position-relative">
+                                                <div
+                                                    class="submenu-toggle btn w-100 text-start dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                                    Maintenance Services
+                                                </div>
+                                                <ul
+                                                    class="submenu list-unstyled position-absolute top-0 start-100 mt-0 ms-2 px-3 py-3 bg-white shadow rounded-4 d-none">
+                                                    <li><a href="#"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body text-hover-primary">Preventive
+                                                            Maintenance</a></li>
+                                                    <li><a href="#"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body text-hover-primary">Repair
+                                                            Services</a></li>
+                                                    <li><a href="#"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body text-hover-primary">Landscaping</a>
+                                                    </li>
+                                                </ul>
                                             </li>
 
 
@@ -237,6 +274,34 @@
                                     </div>
                                 </div>
                             </li>
+
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    const toggles = document.querySelectorAll(".submenu-toggle");
+                                    const allSubmenus = document.querySelectorAll(".submenu");
+
+                                    toggles.forEach(toggle => {
+                                        toggle.addEventListener("click", function (e) {
+                                            e.stopPropagation();
+                                            const submenu = this.nextElementSibling;
+
+                                            // Close all other submenus
+                                            allSubmenus.forEach(menu => {
+                                                if (menu !== submenu) menu.classList.add("d-none");
+                                            });
+
+                                            // Toggle current submenu
+                                            submenu.classList.toggle("d-none");
+                                        });
+                                    });
+
+                                    // Close all on outside click
+                                    document.addEventListener("click", function () {
+                                        allSubmenus.forEach(menu => menu.classList.add("d-none"));
+                                    });
+                                });
+                            </script>
+
 
                             <li class="nav-item">
                                 <div class="dropdown">
@@ -490,10 +555,11 @@
                             <div class="max-w-2xl mx-auto text-center py-5">
                                 <h1
                                     class="m-0 text-body-emphasis text-balance text-7xl leading-tight tracking-tight fw-semibold">
-                                    INTERIOR & EXTERIOR</h1>
-                                <p class="m-0 mt-6 text-body text-pretty text-xl leading-8 fw-medium">Experience the
-                                    ultimate in home cleaning services. Our team delivers exceptional results, ensuring
-                                    your home is spotless and inviting.</p>
+                                    Facility Management</h1>
+                                <p class="m-0 mt-6 text-body text-pretty text-xl leading-8 fw-medium">Complete building,
+                                    security, housekeeping, and technical service operations for residential and
+                                    commercial spaces.</p>
+
                                 <div class="mt-7">
                                     <a href="#contact"
                                         class="btn btn-lg btn-primary text-lg fw-semibold px-6 rounded-pill">Get
@@ -518,9 +584,11 @@
                             <div class="max-w-2xl mx-auto text-center py-5">
                                 <h1
                                     class="m-0 text-body-emphasis text-balance text-7xl leading-tight tracking-tight fw-semibold">
-                                    HOME PAINTING SERVICES</h1>
-                                <p class="m-0 mt-6 text-body text-pretty text-xl leading-8 fw-medium">We use safe and
-                                    eco-friendly products to keep your family healthy and your home sparkling.</p>
+                                    Construction & Renovation</h1>
+                                <p class="m-0 mt-6 text-body text-pretty text-xl leading-8 fw-medium">Interior,
+                                    exterior, and specialized works from design to execution for homes and commercial
+                                    buildings.</p>
+
                                 <div class="mt-7">
                                     <a href="#contact"
                                         class="btn btn-lg btn-primary text-lg fw-semibold px-6 rounded-pill">Book
@@ -545,9 +613,10 @@
                             <div class="max-w-2xl mx-auto text-center py-5">
                                 <h1
                                     class="m-0 text-body-emphasis text-balance text-7xl leading-tight tracking-tight fw-semibold">
-                                    MODULAR KITCHEN SERVICES</h1>
-                                <p class="m-0 mt-6 text-body text-pretty text-xl leading-8 fw-medium">Join our happy
-                                    customers and enjoy a worry-free, spotless home with our expert cleaning services.
+                                    Maintenance Services</h1>
+                                <p class="m-0 mt-6 text-body text-pretty text-xl leading-8 fw-medium">Preventive care,
+                                    emergency repairs, and regular upkeep of plumbing, electrical, carpentry, and
+                                    landscaping systems.
                                 </p>
                                 <div class="mt-7">
                                     <a href="#contact"
@@ -560,7 +629,8 @@
                 </div>
 
                 <!-- Slide 4 -->
-                <div class="carousel-item w-100 h-100">
+                <!-- <div class="carousel-item w-100 h-100">
+
                     <div
                         class="overflow-hidden position-absolute z-n1 top-0 end-0 bottom-0 start-0 m-sm-3 m-xl-4 border border-body-secondary rounded-sm-5 rounded-xl-6">
                         <img src="assets/img/bg/home3.jpg"
@@ -585,10 +655,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Slide 5 -->
-                <div class="carousel-item w-100 h-100">
+                <!-- <div class="carousel-item w-100 h-100">
+
                     <div
                         class="overflow-hidden position-absolute z-n1 top-0 end-0 bottom-0 start-0 m-sm-3 m-xl-4 border border-body-secondary rounded-sm-5 rounded-xl-6">
                         <img src="assets/img/bg/home3.jpg"
@@ -613,10 +684,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Slide 6 -->
-                <div class="carousel-item w-100 h-100">
+                <!-- <div class="carousel-item w-100 h-100">
+
                     <div
                         class="overflow-hidden position-absolute z-n1 top-0 end-0 bottom-0 start-0 m-sm-3 m-xl-4 border border-body-secondary rounded-sm-5 rounded-xl-6">
                         <img src="assets/img/bg/home3.jpg"
@@ -641,7 +713,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- Controls -->
@@ -674,8 +746,10 @@
                 <!-- Description paragraph -->
                 <p class="m-0 mt-5 text-body text-pretty text-lg leading-8" data-aos-delay="400" data-aos="fade"
                     data-aos-duration="3000">
+
                     We offer expert solutions for painting, kitchens, housekeeping, waterproofing, mosquito nets, and
                     more.
+
                 </p>
             </div>
 
@@ -801,8 +875,10 @@
                             <div class="max-w-2xl" data-aos-delay="200" data-aos="fade" data-aos-duration="3000">
                                 <!-- Description paragraph -->
                                 <p class="m-0 text-body text-pretty text-lg leading-8">
+
                                     Explore our comprehensive range of home improvement and maintenance services,
                                     tailored to transform and protect your living spaces with precision and care.
+
                                 </p>
                             </div>
                         </div>
@@ -812,6 +888,7 @@
                         <div class="row row-cols-1 row-cols-lg-2 gx-xl-8 gy-7 gy-sm-8">
                             <!-- Service Cards -->
                             <div class="col" data-aos-delay="0" data-aos="fade" data-aos-duration="3000">
+
                                 <div class="d-flex gap-3 align-items-center text-body-emphasis text-base fw-semibold">
                                     <svg class="w-4-extra h-4-extra text-primary-emphasis" ...>
                                         <path d="m4.5 12.75 6 6 9-13.5" />
@@ -821,10 +898,12 @@
                                 <div class="mt-4 text-body text-base leading-7">
                                     Enhance your property's appeal with expert interior and exterior design and
                                     renovation solutions.
+
                                 </div>
                             </div>
 
                             <div class="col" data-aos-delay="0" data-aos="fade" data-aos-duration="3000">
+
                                 <div class="d-flex gap-3 align-items-center text-body-emphasis text-base fw-semibold">
                                     <svg class="w-4-extra h-4-extra text-primary-emphasis" ...>
                                         <path d="m4.5 12.75 6 6 9-13.5" />
@@ -834,10 +913,12 @@
                                 <div class="mt-4 text-body text-base leading-7">
                                     Transform your living spaces with professional interior and exterior painting
                                     services using high-quality materials.
+
                                 </div>
                             </div>
 
                             <div class="col" data-aos-delay="0" data-aos="fade" data-aos-duration="3000">
+
                                 <div class="d-flex gap-3 align-items-center text-body-emphasis text-base fw-semibold">
                                     <svg class="w-4-extra h-4-extra text-primary-emphasis" ...>
                                         <path d="m4.5 12.75 6 6 9-13.5" />
@@ -847,10 +928,12 @@
                                 <div class="mt-4 text-body text-base leading-7">
                                     Custom-designed modular kitchens that combine style, space optimization, and
                                     functionality.
+
                                 </div>
                             </div>
 
                             <div class="col" data-aos-delay="0" data-aos="fade" data-aos-duration="3000">
+
                                 <div class="d-flex gap-3 align-items-center text-body-emphasis text-base fw-semibold">
                                     <svg class="w-4-extra h-4-extra text-primary-emphasis" ...>
                                         <path d="m4.5 12.75 6 6 9-13.5" />
@@ -860,10 +943,12 @@
                                 <div class="mt-4 text-body text-base leading-7">
                                     Reliable and thorough housekeeping services to keep your home spotless and
                                     well-maintained.
+
                                 </div>
                             </div>
 
                             <div class="col" data-aos-delay="0" data-aos="fade" data-aos-duration="3000">
+
                                 <div class="d-flex gap-3 align-items-center text-body-emphasis text-base fw-semibold">
                                     <svg class="w-4-extra h-4-extra text-primary-emphasis" ...>
                                         <path d="m4.5 12.75 6 6 9-13.5" />
@@ -873,10 +958,12 @@
                                 <div class="mt-4 text-body text-base leading-7">
                                     Install durable and elegant mosquito nets to ensure a pest-free environment for your
                                     home.
+
                                 </div>
                             </div>
 
                             <div class="col" data-aos-delay="0" data-aos="fade" data-aos-duration="3000">
+
                                 <div class="d-flex gap-3 align-items-center text-body-emphasis text-base fw-semibold">
                                     <svg class="w-4-extra h-4-extra text-primary-emphasis" ...>
                                         <path d="m4.5 12.75 6 6 9-13.5" />
@@ -886,6 +973,7 @@
                                 <div class="mt-4 text-body text-base leading-7">
                                     Protect your home from water damage with our advanced waterproofing treatments and
                                     solutions.
+
                                 </div>
                             </div>
                         </div>
@@ -991,6 +1079,7 @@
 
     <!-- About Us -->
     <section class="overflow-hidden pb-9 pb-sm-10 pb-xl-11 pt-6 pt-sm-7 pt-xl-8">
+
     <div class="container">
         <div class="row gy-7 align-items-center justify-content-between">
             <div class="col-12 col-xl-5 order-last">
@@ -1020,9 +1109,11 @@
                             <span class="bi align-self-start ltr-display" aria-hidden="true">→</span>
                             <span class="bi align-self-start rtl-display" aria-hidden="true">←</span>
                         </a>
+
                     </div>
                 </div>
             </div>
+
 
             <!-- Landscape Image -->
             <div class="col-12 col-xl-6">
@@ -1031,10 +1122,12 @@
                         <img src="assets/img/bg/home6.jpg"
                             class="object-fit-cover rounded-3 rounded-sm-4 rounded-xl-5 shadow-sm"
                             alt="About us section" loading="lazy">
+
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Big Centered Landscape Image -->
         <div class="pt-9 pt-sm-10 pt-xl-11">
@@ -1522,6 +1615,7 @@
 
 
     <!-- FAQs -->
+
    <section
     class="overflow-hidden position-relative py-9 py-sm-10 py-xl-11 mx-sm-3 mx-xl-4 border border-body-secondary rounded-6 mt-n6">
     <!-- Background color -->
@@ -1541,8 +1635,10 @@
                     <p class="m-0 text-body-emphasis text-balance text-5xl leading-tight tracking-tight fw-semibold">
                         Common Questions About Our Services.
                     </p>
+
                 </div>
             </div>
+
 
             <div class="col-12 col-xl-6">
                 <div class="max-w-2xl" data-aos-delay="200" data-aos="fade" data-aos-duration="3000">
@@ -1550,9 +1646,11 @@
                     <p class="m-0 text-body text-pretty text-lg leading-8">
                         Find quick answers to common questions about our home improvement and maintenance services. Still curious? Reach out to our team directly!
                     </p>
+
                 </div>
             </div>
         </div>
+
 
         <div class="m-0 pt-8 pt-sm-9">
             <dl class="row row-cols-1 row-cols-lg-2 gx-xl-8 gy-7 gy-sm-8">
@@ -1574,6 +1672,7 @@
                     </dd>
                 </div>
 
+
                 <div class="col" data-aos-delay="0" data-aos="fade" data-aos-duration="3000">
                     <dt class="text-body-emphasis text-pretty text-base leading-7 fw-semibold">
                         Are your professionals trained and verified?
@@ -1582,6 +1681,7 @@
                         Yes, all technicians and service staff are trained and background-verified for your safety.
                     </dd>
                 </div>
+
 
                 <div class="col" data-aos-delay="0" data-aos="fade" data-aos-duration="3000">
                     <dt class="text-body-emphasis text-pretty text-base leading-7 fw-semibold">
@@ -1592,6 +1692,7 @@
                     </dd>
                 </div>
 
+
                 <div class="col" data-aos-delay="0" data-aos="fade" data-aos-duration="3000">
                     <dt class="text-body-emphasis text-pretty text-base leading-7 fw-semibold">
                         Can I customize a service?
@@ -1600,6 +1701,7 @@
                         Absolutely! Let us know your specific needs during booking, and we’ll tailor the service accordingly.
                     </dd>
                 </div>
+
 
                 <div class="col" data-aos-delay="0" data-aos="fade" data-aos-duration="3000">
                     <dt class="text-body-emphasis text-pretty text-base leading-7 fw-semibold">
@@ -1610,8 +1712,10 @@
                     </dd>
                 </div>
             </dl>
+
         </div>
     </div>
+
 
     <!-- Gradient from the top-end corner -->
     <div class="position-absolute z-n1 top-0 end-0 mt-n8 me-n8" data-aos-delay="0" data-aos="fade-down-left"
