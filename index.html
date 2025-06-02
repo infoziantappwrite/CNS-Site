@@ -86,27 +86,7 @@
     <link rel="canonical" href="your_canonical_url_goes_here.html">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-    <style>
-        .submenu {
-            min-width: 220px;
-            z-index: 9999;
-            background: #cff8ff;
-            border: 1px solid #e0e0e0;
 
-        }
-
-        .submenu::before {
-            content: "";
-            position: absolute;
-            top: 10px;
-            left: -8px;
-            width: 0;
-            height: 0;
-            border-top: 8px solid transparent;
-            border-bottom: 8px solid transparent;
-            border-right: 8px solid #ffffff;
-        }
-    </style>
 
 </head>
 
@@ -212,14 +192,13 @@
                                                     Services Overview
                                                 </a>
                                             </li>
-                                            <li
-                                                class="position-relative rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                            <li class="position-relative ">
                                                 <div
                                                     class="submenu-toggle btn w-100 text-start  dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
                                                     Facility Management
                                                 </div>
                                                 <ul
-                                                    class="submenu list-unstyled position-absolute top-0 start-100 mt-0 ms-2 px-3 py-3  shadow rounded-4 d-none  ">
+                                                    class="submenu list-unstyled position-absolute top-0 start-100 mt-0 ms-2 px-3 py-3  shadow  rounded-4 d-none  ">
                                                     <li><a href="#"
                                                             class="dropdown-item py-2 px-3 rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold ">Building
                                                             Operations</a></li>
@@ -323,7 +302,7 @@
                             <li class="nav-item d-xl-none">
                                 <a href="booking.html"
                                     class="text-center rounded-pill nav-link py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-body bg-primary-subtle-hover border border-light border-primary-subtle-hover text-base fw-semibold">
-
+                                    Make a Booking
                                 </a>
                             </li>
                         </ul>
@@ -331,6 +310,42 @@
                 </div>
             </div>
         </nav>
+        <style>
+            .submenu {
+                min-width: 220px;
+                z-index: 9999;
+                background: white;
+
+
+            }
+
+            .submenu::before {
+                content: "";
+                position: absolute;
+                top: 10px;
+                left: -8px;
+                width: 0;
+                height: 0;
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-right: 8px solid #ffffff;
+            }
+
+            @media (max-width: 991.98px) {
+                .submenu {
+                    position: static !important;
+                    margin-top: 0.5rem;
+                    margin-left: 0 !important;
+                    width: 100%;
+                    border: solid 1px #dee2e6;
+                }
+
+                .submenu li a {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        </style>
     </header>
 
 
@@ -350,9 +365,9 @@
                         <div class="position-absolute z-n1 top-0 h-100 w-100 bg-header mix-blend-multiply"></div>
                         <!-- Optional gradients here -->
                     </div>
-                    <div class="w-100 pt-11 pb-5 pb-sm-10 pb-xl-11">
+                    <div class="w-100 pt-11 pb-10 pb-sm-11 pb-xl-11">
                         <div class="container">
-                            <div class="max-w-5xl mx-auto text-center py-5">
+                            <div class="max-w-5xl mx-auto text-center pb-8">
                                 <h1
                                     class="m-0 text-body-emphasis text-balance text-6xl leading-tight tracking-tight fw-semibold">
                                     All-in-One Property Solutions</h1>
