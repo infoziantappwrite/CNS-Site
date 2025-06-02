@@ -86,42 +86,7 @@
     <link rel="canonical" href="your_canonical_url_goes_here.html">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-    <style>
-        .submenu {
-            min-width: 220px;
-            z-index: 9999;
-            background:white;
-            
 
-        }
-
-        .submenu::before {
-            content: "";
-            position: absolute;
-            top: 10px;
-            left: -8px;
-            width: 0;
-            height: 0;
-            border-top: 8px solid transparent;
-            border-bottom: 8px solid transparent;
-            border-right: 8px solid #ffffff;
-        }
-        @media (max-width: 991.98px) {
-  .submenu {
-    position: static !important;
-    margin-top: 0.5rem;
-    margin-left: 0 !important;
-    width: 100%;
-    border: solid 1px #dee2e6;
-  }
-
-  .submenu li a {
-    display: block;
-    width: 100%;
-  }
-}
-
-    </style>
 
 </head>
 
@@ -227,8 +192,7 @@
                                                     Services Overview
                                                 </a>
                                             </li>
-                                            <li
-                                                class="position-relative ">
+                                            <li class="position-relative ">
                                                 <div
                                                     class="submenu-toggle btn w-100 text-start  dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
                                                     Facility Management
@@ -346,6 +310,42 @@
                 </div>
             </div>
         </nav>
+        <style>
+            .submenu {
+                min-width: 220px;
+                z-index: 9999;
+                background: white;
+
+
+            }
+
+            .submenu::before {
+                content: "";
+                position: absolute;
+                top: 10px;
+                left: -8px;
+                width: 0;
+                height: 0;
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-right: 8px solid #ffffff;
+            }
+
+            @media (max-width: 991.98px) {
+                .submenu {
+                    position: static !important;
+                    margin-top: 0.5rem;
+                    margin-left: 0 !important;
+                    width: 100%;
+                    border: solid 1px #dee2e6;
+                }
+
+                .submenu li a {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        </style>
     </header>
 
 
