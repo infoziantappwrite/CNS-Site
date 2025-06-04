@@ -107,21 +107,30 @@
                 </a>
 
                 <!-- Button that triggers the search modal -->
-                <button id="searchButton" class="btn p-3 rounded-circle shadow-none text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover order-last me-sm-4" data-bs-toggle="modal" data-bs-target="#searchButtonModal" type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" height="24" width="24"> <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /> </svg>
+                <button id="searchButton"
+                    class="btn p-3 rounded-circle shadow-none text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover order-last me-sm-4"
+                    data-bs-toggle="modal" data-bs-target="#searchButtonModal" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" height="24" width="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
                 </button>
 
-                <a href="contact.html" class="d-none d-xl-inline order-last text-center rounded-pill nav-link py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-body bg-primary-subtle-hover border border-light border-primary-subtle-hover text-base fw-semibold">
+                <a href="booking.html"
+                    class="d-none d-xl-inline order-last text-center rounded-pill nav-link py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-body bg-primary-subtle-hover border border-light border-primary-subtle-hover text-base fw-semibold">
                     Make a Booking
                 </a>
 
                 <!-- Hamburger Menu -->
-                <button class="navbar-toggler order-last" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" type="button">
+                <button class="navbar-toggler order-last" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <!-- Offcanvas -->
-                <div id="offcanvasNavbar" class="offcanvas offcanvas-end rounded-start-0 rounded-start-sm-5" tabindex="-1" aria-labelledby="offcanvasNavbarLabel">
+                <div id="offcanvasNavbar" class="offcanvas offcanvas-end rounded-start-0 rounded-start-sm-5"
+                    tabindex="-1" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header pt-6 pe-6 pb-5 ps-6">
                         <h5 id="offcanvasNavbarLabel" class="offcanvas-title m-0">
                             <a href="index.html" class="navbar-brand">
@@ -129,260 +138,163 @@
                             </a>
                         </h5>
 
-                        <button class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar" aria-label="Close" type="button"></button>
+                        <button class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar"
+                            aria-label="Close" type="button"></button>
                     </div>
 
                     <div class="offcanvas-body">
                         <ul class="navbar-nav align-items-xl-center flex-grow-1 column-gap-xl-3 row-gap-6 row-gap-xl-2">
                             <li class="nav-item ms-xl-auto">
-                                <a href="index.html" class="rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                <a href="index.html"
+                                    class="rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
                                     Home
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="about.html" class="rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                <a href="about.html"
+                                    class="rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
                                     About
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <div class="dropdown">
-                                    <button class="btn w-100 text-start text-xl-center dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold" data-bs-toggle="dropdown" aria-expanded="false" type="button">
+                                    <button
+                                        class="btn w-100 text-start text-xl-center dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"
+                                        data-bs-toggle="dropdown" aria-expanded="false" type="button">
                                         Services
                                     </button>
 
-                                    <div class="dropdown-menu dropdown-menu-start dropdown-menu-hover start-0 shadow mt-0 rounded-4 px-4 py-4" data-bs-theme="light">
+                                    <div class="dropdown-menu dropdown-menu-start dropdown-menu-hover start-0 shadow mt-0  rounded-4 px-4 py-4"
+                                        data-bs-theme="light">
                                         <div class="d-none d-xl-block">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--bs-body-bg)" class="mt-n1 d-inline-block position-absolute top-0 start-10 ms-4 translate-middle" viewBox="0 0 16 16"> <path class="carret-dropdown-path" d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/> </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="var(--bs-body-bg)"
+                                                class="mt-n1 d-inline-block position-absolute top-0 start-10 ms-4 translate-middle"
+                                                viewBox="0 0 16 16">
+                                                <path class="carret-dropdown-path"
+                                                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                            </svg>
                                         </div>
 
                                         <ul class="list-unstyled d-flex flex-column gap-4">
-                                           <li>
-                                                <a href="services.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                    Services Overview 
+                                            <li>
+                                                <a href="services.html"
+                                                    class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                                    Services Overview
                                                 </a>
+                                            </li>
+                                            <li class="position-relative ">
+                                                <div
+                                                    class="submenu-toggle btn w-100 text-start  dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                                    Facility Management
+                                                </div>
+                                                <ul
+                                                    class="submenu list-unstyled position-absolute top-0 start-100 mt-0 ms-2 px-3 py-3  shadow  rounded-4 d-none  ">
+                                                    <li><a href="/BuildingOperations.html"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold ">Building
+                                                            Operations</a></li>
+                                                    <li><a href="/CleaningAndMaintenance.html"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold ">Cleaning
+                                                            & Maintenance</a></li>
+                                                    <li><a href="/TechnicalServices.html"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold ">Technical
+                                                            Services</a></li>
+                                                </ul>
                                             </li>
 
-                                             <li>
-                                                <a href="InteriorAndExterior.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                   Interior & exterior 
-                                                </a>
+                                            <!-- Flyout Item: Construction & Renovation -->
+                                            <li class="position-relative">
+                                                <div
+                                                    class="submenu-toggle btn w-100 text-start  dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                                    Construction & Renovation
+                                                </div>
+                                                <ul
+                                                    class="submenu list-unstyled position-absolute top-0 start-100 mt-0 ms-2 px-3 py-3 shadow rounded-4 d-none">
+                                                    <li><a href="/InteriorSolutions.html"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold ">Interior
+                                                            Solutions</a></li>
+                                                    <li><a href="/ExteriorServices.html"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold ">Exterior
+                                                            Services</a></li>
+                                                    <li><a href="/SpecializedWorks.html"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold ">Specialized
+                                                            Works</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Maintenance Services -->
+
+                                            <li class="position-relative">
+                                                <div
+                                                    class="submenu-toggle btn w-100 text-start dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                                    Maintenance Services
+                                                </div>
+                                                <ul
+                                                    class="submenu list-unstyled position-absolute top-0 start-100 mt-0 ms-2 px-3 py-3  shadow rounded-4 d-none">
+                                                    <li><a href="/PreventiveMaintenance.html"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold ">Preventive
+                                                            Maintenance</a></li>
+                                                    <li><a href="/RepairServices.html"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold ">Repair
+                                                            Services</a></li>
+                                                    <li><a href="/Landscaping.html"
+                                                            class="dropdown-item py-2 px-3 rounded-3 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold ">Landscaping</a>
+                                                    </li>
+                                                </ul>
                                             </li>
 
-                                             <li>
-                                                <a href="HomePainting.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                    Home Painting 
-                                                </a>
-                                            </li>
-
-                                             <li>
-                                                <a href="ModularKitchen.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                    Modular kitchen 
-                                                </a>
-                                            </li>
-
-                                             <li>
-                                                <a href="HouseKeeping.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                    House keeping services 
-                                                </a>
-                                            </li>
-
-                                             <li>
-                                                <a href="MosquitoNets.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                    Mosquito nets
-                                                </a>
-                                            </li>
-
-                                             <li>
-                                                <a href="WaterProofing.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                    Water proofing services
-                                                </a>
-                                            </li>
 
                                         </ul>
                                     </div>
                                 </div>
                             </li>
 
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    const toggles = document.querySelectorAll(".submenu-toggle");
+                                    const allSubmenus = document.querySelectorAll(".submenu");
+
+                                    toggles.forEach(toggle => {
+                                        toggle.addEventListener("click", function (e) {
+                                            e.stopPropagation();
+                                            const submenu = this.nextElementSibling;
+
+                                            // Close all other submenus
+                                            allSubmenus.forEach(menu => {
+                                                if (menu !== submenu) menu.classList.add("d-none");
+                                            });
+
+                                            // Toggle current submenu
+                                            submenu.classList.toggle("d-none");
+                                        });
+                                    });
+
+                                    // Close all on outside click
+                                    document.addEventListener("click", function () {
+                                        allSubmenus.forEach(menu => menu.classList.add("d-none"));
+                                    });
+                                });
+                            </script>
+
+
                             <li class="nav-item">
-                                <div class="dropdown">
-                                    <button class="btn w-100 text-start text-xl-center dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold" data-bs-toggle="dropdown" aria-expanded="false" type="button">
-                                        Blog
-                                    </button>
-
-                                    <div class="dropdown-menu dropdown-menu-start dropdown-menu-hover start-0 shadow mt-0 rounded-4 px-4 py-4" data-bs-theme="light">
-                                        <div class="d-none d-xl-block">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--bs-body-bg)" class="mt-n1 d-inline-block position-absolute top-0 start-10 ms-4 translate-middle" viewBox="0 0 16 16"> <path class="carret-dropdown-path" d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/> </svg>
-                                        </div>
-
-                                        <ul class="list-unstyled d-flex flex-column gap-4">
-                                            <li>
-                                                <a href="blog.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                    Blog Overview 
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="blogpost.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                    Blog Post 
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="blogauthor.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                    Author Profile 
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <a href="blog.html"
+                                    class="rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                    Blogs
+                                </a>
                             </li>
 
                             <li class="nav-item me-xl-auto">
-                                <div class="dropdown">
-                                    <button class="btn w-100 text-start text-xl-center dropdown-toggle shadow-none rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold" data-bs-toggle="dropdown" aria-expanded="false" type="button">
-                                        Pages
-                                    </button>
-
-                                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-hover end-0 shadow mt-0 rounded-4 min-w-dropdown-xl" data-bs-theme="light">
-                                        <div class="d-none d-xl-block">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--bs-body-bg)" class="mt-n1 d-inline-block position-absolute top-0 end-0 me-4 translate-middle" viewBox="0 0 16 16"> <path class="carret-dropdown-path" d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/> </svg>
-                                        </div>
-
-                                        <div class="row gy-4 px-4 py-3">
-                                            <ul class="col-12 col-xl-4 list-unstyled d-flex flex-column gap-4">
-                                                <li>
-                                                    <a href="booking.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Booking 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="signup.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Sign Up 
-                                                    </a>
-                                                </li> 
-                                                
-                                                <li>
-                                                    <a href="signin.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Sign In 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="2fasecurity.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        2FA Security 
-                                                    </a>
-                                                </li> 
-
-                                                <li>
-                                                    <a href="resetpassword.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Reset Password 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="changepassword.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Change Password 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="thankyou.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Thank You 
-                                                    </a>
-                                                </li>
-                                            </ul>
-
-                                            <ul class="col-12 col-xl-4 list-unstyled d-flex flex-column gap-4">
-                                                <li>
-                                                    <a href="portfolio.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Portfolio Showcase 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="portfoliodetails.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Portfolio Details 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="comingsoon.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Coming Soon 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="underconstruction.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Under Construction 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="privacypolicy.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Privacy Policy 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="termsofservice.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Terms of Service 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="error.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Error 404
-                                                    </a>
-                                                </li>
-                                            </ul>
-
-                                            <ul class="col-12 col-xl-4 list-unstyled d-flex flex-column gap-4 order-first order-xl-last">
-                                                <li>
-                                                    <a href="pricing.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Pricing 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="events.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Events 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="affiliate.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Affiliate 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="gallery.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Gallery 
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="team.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Team Members
-                                                    </a>
-                                                </li>
-
-                                                 <li>
-                                                    <a href="teamprofile.html" class="dropdown-item rounded-3 py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold"> 
-                                                        Member Profile
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                <a href="contact.html"
+                                    class="rounded-3 nav-link px-4 text-body-emphasis text-primary-emphasis-hover bg-primary-subtle-hover border border-transparent border-primary-subtle-hover text-base fw-semibold">
+                                    Contact
+                                </a>
                             </li>
 
                             <li class="nav-item d-xl-none">
-                                <a href="contact.html" class="text-center rounded-pill nav-link py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-body bg-primary-subtle-hover border border-light border-primary-subtle-hover text-base fw-semibold">
+                                <a href="booking.html"
+                                    class="text-center rounded-pill nav-link py-2 px-4 text-body-emphasis text-primary-emphasis-hover bg-body bg-primary-subtle-hover border border-light border-primary-subtle-hover text-base fw-semibold">
                                     Make a Booking
                                 </a>
                             </li>
@@ -391,8 +303,43 @@
                 </div>
             </div>
         </nav>
-    </header>
+        <style>
+            .submenu {
+                min-width: 220px;
+                z-index: 9999;
+                background: white;
 
+
+            }
+
+            .submenu::before {
+                content: "";
+                position: absolute;
+                top: 10px;
+                left: -8px;
+                width: 0;
+                height: 0;
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-right: 8px solid #ffffff;
+            }
+
+            @media (max-width: 991.98px) {
+                .submenu {
+                    position: static !important;
+                    margin-top: 0.5rem;
+                    margin-left: 0 !important;
+                    width: 100%;
+                    border: solid 1px #dee2e6;
+                }
+
+                .submenu li a {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        </style>
+    </header>
 
     <!-- Header Body -->
     <section class="overflow-hidden position-relative py-12" data-bs-theme="dark">
