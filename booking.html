@@ -1,26 +1,27 @@
 <!doctype html>
 <html lang="en" dir="ltr" data-bs-theme="light">
 
- 
- <meta http-equiv="content-type" content="text/html;charset=utf-8" />  
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
 <head>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
+
     <!-- Update the 'content' attribute to reflect the actual content description -->
     <meta name="description" content="your_description_goes_here">
 
-    
+
     <!-- Modify the 'content' attribute to include appropriate keywords -->
     <meta name="keywords" content="your_keywords_goes_here">
 
-    
+
     <meta name="author" content="tigmatemplate">
     <meta name="generator" content="Bootstrap">
 
-    
+
     <!-- Change the text within the <title> tag to match the webpage's content -->
     <title> your_title_goes_here </title>
 
@@ -69,13 +70,13 @@
     <!-- X/Twitter Card Meta Tags for Social Sharing -->
     <meta name="twitter:card" content="summary_large_image">
     <!-- Update with your X/Twitter handle -->
-    <meta name="twitter:site" content="@yourtwitterhandle"> 
+    <meta name="twitter:site" content="@yourtwitterhandle">
     <!-- Update the 'title' and 'description' content below to enhance social sharing -->
-    <meta name="twitter:title" content="your_title_goes_here"> 
+    <meta name="twitter:title" content="your_title_goes_here">
     <meta name="twitter:description" content="your_description_goes_here">
     <!-- Update with actual absolute image URL like: https://example.com/main.jpg -->
-    <meta name="twitter:image" content="your_absolute_image_url_goes_here"> 
-    
+    <meta name="twitter:image" content="your_absolute_image_url_goes_here">
+
 
     <!-- 
         The following line specifies the canonical URL for this page.
@@ -85,11 +86,13 @@
     <link rel="canonical" href="your_canonical_url_goes_here.html">
 
 </head>
+
 <body>
 
 
     <!-- Loader Wrapper -->
-    <div class="loader-wrapper overflow-hidden d-flex bg-body position-fixed top-0 end-0 bottom-0 start-0 justify-content-center align-items-center transition-all ease-in-out duration-1000 opacity-100 w-100">
+    <div
+        class="loader-wrapper overflow-hidden d-flex bg-body position-fixed top-0 end-0 bottom-0 start-0 justify-content-center align-items-center transition-all ease-in-out duration-1000 opacity-100 w-100">
         <div class="d-flex flex-column row-gap-7 align-items-center">
             <img src="assets/logo/logo.png" height="50" alt="logo">
             <div class="spinner-border text-primary-emphasis p-5" role="status">
@@ -105,8 +108,8 @@
             <div class="col-12 col-xl-6 order-xl-last">
                 <div class="max-w-lg mx-auto h-100 p-3 p-xl-4">
                     <div class="row h-100">
-                        
-                        
+
+
 
                         <div class="col-12">
                             <!-- Eyeball Heading -->
@@ -115,132 +118,511 @@
                             </h1>
 
                             <!-- Description paragraph -->
-                            <p class="m-0 pb-8 text-body-emphasis text-balance text-5xl leading-tight tracking-tight fw-semibold">
+                            <p
+                                class="m-0 pb-8 text-body-emphasis text-balance text-5xl leading-tight tracking-tight fw-semibold">
                                 Reserve your Ideal Date and Time Slot.
                             </p>
 
                             <div class="pb-xl-9">
                                 <form class="row gy-6 gx-sm-6 needs-validation" id="bookingForm" novalidate>
+
+                                    <!-- Full Name -->
                                     <div class="col-12 col-md-6">
                                         <label for="fullNameBookingForm" class="form-label">
-                                            Full name
-                                            <span class="text-danger-emphasis"> * </span>
+                                            Full name <span class="text-danger-emphasis">*</span>
                                         </label>
-
-                                        <input type="text" class="form-control" name="fullNameBookingForm" id="fullNameBookingForm" required>
-                                        
-                                        <div class="invalid-feedback text-xs">
-                                            Please enter your full name.
-                                        </div>
+                                        <input type="text" class="form-control" name="fullNameBookingForm"
+                                            id="fullNameBookingForm" required minlength="3" maxlength="20">
+                                        <div class="invalid-feedback text-xs">Please enter your full name (3-20
+                                            characters).</div>
                                     </div>
 
+                                    <!-- Email -->
+                                <!-- Add this to your HTML (if not already present) -->
+<div class="col-12 col-md-6">
+    <label for="emailAddressBookingForm" class="form-label">
+        Email address <span class="text-danger-emphasis">*</span>
+    </label>
+    <div class="input-group">
+        <input type="email" class="form-control" name="emailAddressBookingForm"
+            id="emailAddressBookingForm" required minlength="3" maxlength="50">
+        <button class="btn btn-outline-secondary" type="button" id="verifyEmailBtn">Verify</button>
+    </div>
+    <div class="invalid-feedback text-xs">Please enter a valid email address.</div>
+    
+    <!-- OTP Verification Section -->
+    <div id="otpVerificationSection" class="mt-2" style="display: none;">
+        <div class="input-group mb-2">
+            <input type="text" class="form-control" id="otpInput" placeholder="Enter OTP" maxlength="6">
+            <button class="btn btn-primary" type="button" id="submitOtpBtn">Verify OTP</button>
+        </div>
+        <div id="otpMessage" class="small"></div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Form elements
+    const form = document.getElementById('bookingForm');
+    const submitButton = document.getElementById('submitButton');
+    
+    // Email verification elements
+    const emailInput = document.getElementById('emailAddressBookingForm');
+    const verifyEmailBtn = document.getElementById('verifyEmailBtn');
+    const otpVerificationSection = document.getElementById('otpVerificationSection');
+    const otpInput = document.getElementById('otpInput');
+    const submitOtpBtn = document.getElementById('submitOtpBtn');
+    const otpMessage = document.getElementById('otpMessage');
+    
+    // Date and time input elements
+    const serviceDateInput = document.getElementById('serviceDateBookingForm');
+    const startTimeInput = document.getElementById('startTimeBookingForm');
+
+    // --- Robust Element Existence Check ---
+    if (!form || !submitButton || !emailInput || !verifyEmailBtn || !otpVerificationSection || 
+        !otpInput || !submitOtpBtn || !otpMessage || !serviceDateInput || 
+        !startTimeInput) {
+        console.error('One or more required form or verification elements are missing from the page. Please check your HTML IDs.');
+        if (submitButton) submitButton.disabled = true;
+        if (form) form.innerHTML = '<p class="text-danger">Form is currently unavailable due to missing elements. Please contact support.</p>';
+        return;
+    }
+
+    // State variables
+    let generatedOtp = '';
+    let emailVerified = false;
+
+    // --- Email Verification Logic ---
+    verifyEmailBtn.addEventListener('click', async function() {
+        const email = emailInput.value.trim();
+        
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            emailInput.classList.add('is-invalid');
+            otpMessage.textContent = 'Please enter a valid email address.';
+            otpMessage.className = 'small text-danger';
+            return;
+        }
+        
+        emailInput.classList.remove('is-invalid');
+        verifyEmailBtn.disabled = true;
+        verifyEmailBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+        otpMessage.textContent = '';
+        
+        try {
+            generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+            
+            const response = await fetch('https://mailer-api-production-76e4.up.railway.app/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    mailTo: email,
+                    message: `Your verification OTP is: ${generatedOtp}`,
+                    time: new Date().toLocaleString()
+                })
+            });
+            
+            if (response.ok) {
+                otpVerificationSection.style.display = 'block';
+                otpMessage.textContent = 'OTP sent to your email. Please check your inbox and spam folder.';
+                otpMessage.className = 'small text-success';
+            } else {
+                throw new Error('Failed to send OTP');
+            }
+        } catch (error) {
+            console.error('Error sending OTP:', error);
+            otpMessage.textContent = 'Failed to send OTP. Please try again or check your internet connection.';
+            otpMessage.className = 'small text-danger';
+        } finally {
+            verifyEmailBtn.disabled = false;
+            verifyEmailBtn.textContent = 'Resend OTP';
+        }
+    });
+    
+    // --- OTP Submission Handler ---
+    submitOtpBtn.addEventListener('click', function() {
+        const enteredOtp = otpInput.value.trim();
+        
+        if (enteredOtp === generatedOtp) {
+            emailVerified = true;
+            otpMessage.textContent = 'Email verified successfully!';
+            otpMessage.className = 'small text-success';
+            emailInput.readOnly = true;
+            verifyEmailBtn.disabled = true;
+            otpInput.readOnly = true;
+            submitOtpBtn.disabled = true;
+            
+            verifyEmailBtn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Verified';
+            verifyEmailBtn.className = 'btn btn-success';
+        } else {
+            otpMessage.textContent = 'Invalid OTP. Please try again.';
+            otpMessage.className = 'small text-danger';
+        }
+    });
+    
+    // --- Main Form Submission Handler ---
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        if (!emailVerified) {
+            otpMessage.textContent = 'Please verify your email before submitting the form.';
+            otpMessage.className = 'small text-danger';
+            otpVerificationSection.style.display = 'block';
+            return;
+        }
+        
+        if (!form.checkValidity()) {
+            event.stopPropagation();
+            form.classList.add('was-validated');
+            form.querySelector(':invalid').focus(); 
+            return;
+        }
+
+        const selectedServiceDate = new Date(serviceDateInput.value);
+        const selectedStartTime = new Date(startTimeInput.value);
+        const now = new Date();
+
+        if (selectedServiceDate.setHours(0,0,0,0) < now.setHours(0,0,0,0)) {
+            alert('Service Date must be today or in the future.');
+            serviceDateInput.focus();
+            return;
+        }
+
+        if (selectedStartTime <= now) {
+            alert('Service Start Time must be in the future (relative to the current moment).');
+            startTimeInput.focus();
+            return;
+        }
+        
+        const formData = {
+            fullName: document.getElementById('fullNameBookingForm').value.trim(),
+            email: document.getElementById('emailAddressBookingForm').value.trim(),
+            phone: document.getElementById('phoneBookingForm').value.trim(),
+            serviceDate: new Date(serviceDateInput.value).toISOString(),
+            startTime: new Date(startTimeInput.value).toISOString(),
+            serviceType: document.getElementById('serviceTypeBookingForm').value,
+            serviceDescription: document.getElementById('serviceDescriptionBookingForm').value.trim(),
+            serviceLocation: document.getElementById('serviceLocationBookingForm').value.trim(),
+            serviceStatus: 'Pending'
+        };
+
+        console.log('Final Form Data for POST:', formData);
+
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
+
+        try {
+            const response = await fetch('https://cns-admin-production.up.railway.app/api/v1/serviceRequest/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const data = await response.json();
+            
+            if (!response.ok) {
+                let errorMessage = 'An unexpected error occurred.';
+                if (data && data.message) {
+                    errorMessage = data.message;
+                } else if (response.status === 400) {
+                    errorMessage = 'Invalid request data. Please check your inputs carefully.';
+                } else if (response.status === 404) {
+                    errorMessage = 'Service endpoint not found.';
+                }
+                throw new Error(`Error: ${errorMessage}`);
+            }
+            
+            alert('Service request submitted successfully!');
+            form.reset();
+            form.classList.remove('was-validated');
+            
+            emailVerified = false;
+            emailInput.readOnly = false;
+            verifyEmailBtn.disabled = false;
+            verifyEmailBtn.textContent = 'Verify';
+            verifyEmailBtn.className = 'btn btn-outline-secondary';
+            otpVerificationSection.style.display = 'none';
+            otpInput.readOnly = false;
+            submitOtpBtn.disabled = false;
+            otpInput.value = '';
+            otpMessage.textContent = '';
+
+        } catch (error) {
+            console.error('Error submitting service request:', error);
+            alert(`Error submitting request: ${error.message || 'An unknown error occurred.'}`);
+        } finally {
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Book Service';
+        }
+    });
+
+    // Set minimum date for serviceDate to today
+    const today = new Date();
+    const todayISO = today.toISOString().split('T')[0];
+    serviceDateInput.min = todayISO;
+
+    // Set minimum date-time for startTime
+    function getLocalDatetimeString(date) {
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
+
+    const nowLocal = getLocalDatetimeString(new Date());
+    startTimeInput.min = nowLocal;
+
+    // Validate start time is in the future
+    startTimeInput.addEventListener('change', function() {
+        const currentStartTime = new Date(this.value);
+        const now = new Date();
+
+        if (currentStartTime <= now) {
+            this.setCustomValidity('Start time must be in the future.');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+    
+    // Re-enable verification if email changes
+    emailInput.addEventListener('input', function() {
+        if (emailVerified && this.value.trim() !== emailInput.getAttribute('data-verified-email')) {
+            emailVerified = false;
+            emailInput.readOnly = false;
+            verifyEmailBtn.disabled = false;
+            verifyEmailBtn.textContent = 'Verify';
+            verifyEmailBtn.className = 'btn btn-outline-secondary';
+            otpVerificationSection.style.display = 'none';
+            otpInput.readOnly = false;
+            submitOtpBtn.disabled = false;
+            otpInput.value = '';
+            otpMessage.textContent = '';
+            emailInput.removeAttribute('data-verified-email');
+        }
+    });
+
+    emailInput.addEventListener('blur', function() {
+        if (emailVerified) {
+            emailInput.setAttribute('data-verified-email', this.value.trim());
+        }
+    });
+});
+</script>
+
+                                    <!-- Phone -->
                                     <div class="col-12 col-md-6">
-                                        <label for="emailAddressBookingForm" class="form-label">
-                                            Email address
-                                            <span class="text-danger-emphasis"> * </span>
+                                        <label for="phoneBookingForm" class="form-label">
+                                            Phone Number <span class="text-danger-emphasis">*</span>
                                         </label>
-
-                                        <input type="email" class="form-control" name="emailAddressBookingForm" id="emailAddressBookingForm" required>
-                                        
-                                        <div class="invalid-feedback text-xs">
-                                            Please enter your email address.
-                                        </div>
+                                        <input type="text" class="form-control" name="phoneBookingForm"
+                                            id="phoneBookingForm" required pattern="^[6-9]\d{9}$" maxlength="10"
+                                            minlength="10">
+                                        <div class="invalid-feedback text-xs">Enter a valid 10-digit Indian phone number
+                                            starting with 6-9.</div>
                                     </div>
 
+                                    <!-- Service Date -->
                                     <div class="col-12 col-md-6">
-                                        <label for="phoneNumberBookingForm" class="form-label">
-                                            Phone number
-                                            <span class="text-danger-emphasis"> * </span>
+                                        <label for="serviceDateBookingForm" class="form-label">
+                                            Service Date <span class="text-danger-emphasis">*</span>
                                         </label>
-
-                                        <input type="text" class="form-control" name="phoneNumberBookingForm" id="phoneNumberBookingForm" required>
-                                        
-                                        <div class="invalid-feedback text-xs">
-                                            Please enter your phone number.
-                                        </div>
+                                        <input type="date" class="form-control" name="serviceDateBookingForm"
+                                            id="serviceDateBookingForm" required>
+                                        <div class="invalid-feedback text-xs">Please select a future service date.</div>
                                     </div>
 
+                                    <!-- Start Time -->
                                     <div class="col-12 col-md-6">
-                                        <label for="numberOfGuestsBookingForm" class="form-label">
-                                            Number of guests
-                                            <span class="text-danger-emphasis"> * </span>
+                                        <label for="startTimeBookingForm" class="form-label">
+                                            Start Time <span class="text-danger-emphasis">*</span>
                                         </label>
-
-                                        <input type="number" class="form-control" name="numberOfGuestsBookingForm" id="numberOfGuestsBookingForm" required>
-                                        
-                                        <div class="invalid-feedback text-xs">
-                                            Please enter the number of guests for your reservation.
-                                        </div>
+                                        <input type="datetime-local" class="form-control" name="startTimeBookingForm"
+                                            id="startTimeBookingForm" required>
+                                        <div class="invalid-feedback text-xs">Please enter a valid start time (must be
+                                            in the future).</div>
                                     </div>
 
-                                    <div class="col-12 col-md-6">
-                                        <label for="dateBookingForm" class="form-label">
-                                            Date
-                                            <span class="text-danger-emphasis"> * </span>
-                                        </label>
-
-                                        <input type="date" class="form-control" name="dateBookingForm" id="dateBookingForm" required>
-                                        
-                                        <div class="invalid-feedback text-xs">
-                                            Please select a date for your reservation.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 col-md-6">
-                                        <label for="timeBookingForm" class="form-label">
-                                            Time
-                                            <span class="text-danger-emphasis"> * </span>
-                                        </label>
-
-                                        <input type="time" class="form-control" name="timeBookingForm" id="timeBookingForm" required>
-                                        
-                                        <div class="invalid-feedback text-xs">
-                                            Please select a time for your reservation.
-                                        </div>
-                                    </div>
-
+                                    <!-- Service Type -->
                                     <div class="col-12">
-                                        <label for="messageContentBookingForm" class="form-label">
-                                            Special requests
+                                        <label for="serviceTypeBookingForm" class="form-label">
+                                            Service Type <span class="text-danger-emphasis">*</span>
                                         </label>
+                                        <select class="form-select" name="serviceTypeBookingForm"
+                                            id="serviceTypeBookingForm" required>
+                                            <option value="">Select a service type</option>
 
-                                        <textarea class="form-control" name="messageContentBookingForm" id="messageContentBookingForm" rows="4"></textarea>
+                                            <optgroup label="General Services">
+                                                <option value="Building Operations">Building Operations</option>
+                                                <option value="Property Management">Property Management</option>
+                                                <option value="Building Management">Building Management</option>
+                                                <option value="Guest House Management">Guest House Management</option>
+                                                <option value="Security Services">Security Services</option>
+                                                <option value="Cleaning & Maintenance">Cleaning & Maintenance</option>
+                                                <option value="Housekeeping Services">Housekeeping Services</option>
+                                                <option value="Pest Management">Pest Management</option>
+                                                <option value="Garden & Lawn Maintenance">Garden & Lawn Maintenance
+                                                </option>
+                                            </optgroup>
+
+                                            <optgroup label="Technical Services">
+                                                <option value="Water Management & Plumbing">Water Management & Plumbing
+                                                </option>
+                                                <option value="Electrical Services">Electrical Services</option>
+                                                <option value="HVAC Maintenance">HVAC Maintenance</option>
+                                            </optgroup>
+
+                                            <optgroup label="Construction & Renovation - Interior">
+                                                <option value="Interior Design & Services">Interior Design & Services
+                                                </option>
+                                                <option value="Modular Kitchen Installation">Modular Kitchen
+                                                    Installation</option>
+                                                <option value="Home Painting">Home Painting</option>
+                                                <option value="Interior Painting">Interior Painting</option>
+                                            </optgroup>
+
+                                            <optgroup label="Construction & Renovation - Exterior">
+                                                <option value="Exterior Painting">Exterior Painting</option>
+                                                <option value="Waterproofing Services">Waterproofing Services</option>
+                                                <option value="Building Facade Maintenance">Building Facade Maintenance
+                                                </option>
+                                            </optgroup>
+
+                                            <optgroup label="Specialized Works">
+                                                <option value="Carpentry & Upkeep">Carpentry & Upkeep</option>
+                                                <option value="Mosquito Nets Installation">Mosquito Nets Installation
+                                                </option>
+                                                <option value="Custom Woodwork">Custom Woodwork</option>
+                                            </optgroup>
+
+                                            <optgroup label="Maintenance Services">
+                                                <option value="Preventive Maintenance">Preventive Maintenance</option>
+                                                <option value="Scheduled Inspections">Scheduled Inspections</option>
+                                                <option value="Equipment Servicing">Equipment Servicing</option>
+                                                <option value="Facility Audits">Facility Audits</option>
+                                                <option value="Emergency Repairs">Emergency Repairs</option>
+                                                <option value="Plumbing Services">Plumbing Services</option>
+                                                <option value="Electrical Repairs">Electrical Repairs</option>
+                                                <option value="Carpentry Repairs">Carpentry Repairs</option>
+                                                <option value="Garden Maintenance">Garden Maintenance</option>
+                                                <option value="Lawn Care">Lawn Care</option>
+                                                <option value="Outdoor Beautification">Outdoor Beautification</option>
+                                            </optgroup>
+
+                                            <optgroup label="Industry Solutions - Corporate">
+                                                <option value="Office Management">Office Management</option>
+                                                <option value="Corporate Housekeeping">Corporate Housekeeping</option>
+                                                <option value="Executive Facilities">Executive Facilities</option>
+                                            </optgroup>
+
+                                            <optgroup label="Industry Solutions - Healthcare">
+                                                <option value="Hospital Management">Hospital Management</option>
+                                                <option value="Medical Equipment Care">Medical Equipment Care</option>
+                                                <option value="Sterile Environment Maintenance">Sterile Environment
+                                                    Maintenance</option>
+                                            </optgroup>
+
+                                            <optgroup label="Industry Solutions - Hospitality">
+                                                <option value="Hotel Management">Hotel Management</option>
+                                                <option value="Restaurant Services">Restaurant Services</option>
+                                                <option value="Guest Services">Guest Services</option>
+                                            </optgroup>
+
+                                            <optgroup label="Industry Solutions - Residential">
+                                                <option value="Apartment Complex Management">Apartment Complex
+                                                    Management</option>
+                                                <option value="Home Maintenance">Home Maintenance</option>
+                                                <option value="Residential Security">Residential Security</option>
+                                            </optgroup>
+
+                                            <optgroup label="Industry Solutions - Educational Institutions">
+                                                <option value="School Facility Management">School Facility Management
+                                                </option>
+                                                <option value="Campus Maintenance">Campus Maintenance</option>
+                                                <option value="Student Housing">Student Housing</option>
+                                            </optgroup>
+
+                                            <optgroup label="Industry Solutions - Financial Institutions">
+                                                <option value="Bank Branch Management">Bank Branch Management</option>
+                                                <option value="ATM Maintenance">ATM Maintenance</option>
+                                            </optgroup>
+
+                                            <optgroup label="General Info & Support">
+                                                <option value="Why Choose CNS">Why Choose CNS</option>
+                                                <option value="Professional Standards">Professional Standards</option>
+                                                <option value="Trained Staff">Trained Staff</option>
+                                                <option value="Quick Response">Quick Response</option>
+                                                <option value="Compliance & Safety">Compliance & Safety</option>
+                                                <option value="Service Areas">Service Areas</option>
+                                                <option value="Residential">Residential</option>
+                                                <option value="Commercial">Commercial</option>
+                                                <option value="Industrial">Industrial</option>
+                                                <option value="Institutional">Institutional</option>
+                                                <option value="Get Quote">Get Quote</option>
+                                                <option value="Emergency Services">Emergency Services</option>
+                                                <option value="Customer Support">Customer Support</option>
+                                                <option value="Service Request">Service Request</option>
+                                            </optgroup>
+
+                                        </select>
+                                        <div class="invalid-feedback text-xs">Please select a valid service type.</div>
                                     </div>
-                                    
+
+                                    <!-- Service Description -->
                                     <div class="col-12">
-                                        <div class="pt-3">
-                                            <button type="submit" class="btn btn-lg btn-primary text-center w-100 rounded-pill" id="submitMessageButtonBookingForm">
-                                               Make a Booking
-                                            </button>
-                                        </div>
+                                        <label for="serviceDescriptionBookingForm" class="form-label">
+                                            Service Description
+                                        </label>
+                                        <textarea class="form-control" name="serviceDescriptionBookingForm"
+                                            id="serviceDescriptionBookingForm" rows="4" minlength="5"
+                                            maxlength="1000"></textarea>
+                                        <div class="invalid-feedback text-xs">Description must be between 5 and 1000
+                                            characters.</div>
+                                    </div>
 
-                                        <p class="m-0 mt-4 text-body-secondary text-xs leading-6 text-center">
-                                            By submitting this form, I agree to the
-                                            <a href="privacypolicy.html" class="text-decoration-none fw-semibold">privacy policy</a>.
-                                        </p>
+                                    <!-- Service Location -->
+                                    <div class="col-12">
+                                        <label for="serviceLocationBookingForm" class="form-label">
+                                            Service Location <span class="text-danger-emphasis">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" name="serviceLocationBookingForm"
+                                            id="serviceLocationBookingForm" required>
+                                        <div class="invalid-feedback text-xs">Please enter the service location.</div>
+                                    </div>
 
-                                        <!-- Alert message  -->
-                                        <div id="alertMessageBookingForm"></div>
+                                    <!-- Submit -->
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary" id="submitButton">Book
+                                            Service</button>
                                     </div>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-xl-6" data-bs-theme="dark">
-                <div class="overflow-hidden position-relative position-xl-fixed top-0 bottom-0 start-0 end-50 d-flex align-items-center">
-                    <div class="overflow-hidden position-absolute z-n1 top-0 end-0 bottom-0 start-0 m-sm-3 m-xl-4 border border-body-secondary rounded-top-5 rounded-sm-5 rounded-xl-6">
+                <div
+                    class="overflow-hidden position-relative position-xl-fixed top-0 bottom-0 start-0 end-50 d-flex align-items-center">
+                    <div
+                        class="overflow-hidden position-absolute z-n1 top-0 end-0 bottom-0 start-0 m-sm-3 m-xl-4 border border-body-secondary rounded-top-5 rounded-sm-5 rounded-xl-6">
                         <!-- Background image -->
-                        <img src="assets/img/bg/booking.jpg" class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover filter brightness-150 contrast-125 grayscale-100" alt="Booking's testimonial">
+                        <img src="assets/img/bg/booking.jpg"
+                            class="position-absolute z-n1 top-0 h-100 w-100 object-fit-cover filter brightness-150 contrast-125 grayscale-100"
+                            alt="Booking's testimonial">
 
                         <!-- Colorize the image -->
                         <div class="position-absolute z-n1 top-0 h-100 w-100 bg-header mix-blend-multiply"></div>
 
                         <!-- Gradient from the top-start corner -->
-                        <div class="position-absolute z-n1 top-0 start-0 mt-n8 ms-n8" data-aos-delay="0" data-aos="fade-down-right" data-aos-duration="3000">
-                            <svg class="rtl-flip filter blur-3xl gradient-header" height="160" viewBox="0 0 16512 9984" xmlns="http://www.w3.org/2000/svg"> 
+                        <div class="position-absolute z-n1 top-0 start-0 mt-n8 ms-n8" data-aos-delay="0"
+                            data-aos="fade-down-right" data-aos-duration="3000">
+                            <svg class="rtl-flip filter blur-3xl gradient-header" height="160" viewBox="0 0 16512 9984"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <!-- Define the gradient -->
                                 <defs>
                                     <!--  
@@ -249,23 +631,25 @@
                                         Ends at the bottom-end corner (x2="100%", y2="100%") 
                                     -->
                                     <linearGradient id="gradientHeaderBody1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <!-- Start color --> 
-                                        <stop offset="0%" class="gradient-start"/> 
-                                        <!-- Middle color --> 
-                                        <stop offset="50%" class="gradient-mid"/> 
-                                        <!-- End color --> 
-                                        <stop offset="100%" class="gradient-end"/>
+                                        <!-- Start color -->
+                                        <stop offset="0%" class="gradient-start" />
+                                        <!-- Middle color -->
+                                        <stop offset="50%" class="gradient-mid" />
+                                        <!-- End color -->
+                                        <stop offset="100%" class="gradient-end" />
                                     </linearGradient>
                                 </defs>
 
                                 <!-- Apply the gradient to the path -->
-                                <path fill="url(#gradientHeaderBody1)" d="M0 0V9984L16512 0H0Z"/> 
+                                <path fill="url(#gradientHeaderBody1)" d="M0 0V9984L16512 0H0Z" />
                             </svg>
                         </div>
 
                         <!-- Gradient from the bottom-end corner  -->
-                        <div class="position-absolute z-n1 bottom-0 end-0 mb-n8 me-n8" data-aos-delay="0" data-aos="fade-up-left" data-aos-duration="3000">
-                            <svg class="rtl-flip filter blur-3xl gradient-header" height="160" viewBox="0 0 16512 9984" xmlns="http://www.w3.org/2000/svg"> 
+                        <div class="position-absolute z-n1 bottom-0 end-0 mb-n8 me-n8" data-aos-delay="0"
+                            data-aos="fade-up-left" data-aos-duration="3000">
+                            <svg class="rtl-flip filter blur-3xl gradient-header" height="160" viewBox="0 0 16512 9984"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <!-- Define the gradient -->
                                 <defs>
                                     <!--
@@ -274,17 +658,17 @@
                                         Ends at the top-start corner (x2="0%", y2="0%")
                                     -->
                                     <linearGradient id="gradientHeaderBody2" x1="100%" y1="100%" x2="0%" y2="0%">
-                                        <!-- Start color --> 
-                                        <stop offset="0%" class="gradient-start"/> 
-                                        <!-- Middle color --> 
-                                        <stop offset="50%" class="gradient-mid"/> 
-                                        <!-- End color --> 
-                                        <stop offset="100%" class="gradient-end"/>
+                                        <!-- Start color -->
+                                        <stop offset="0%" class="gradient-start" />
+                                        <!-- Middle color -->
+                                        <stop offset="50%" class="gradient-mid" />
+                                        <!-- End color -->
+                                        <stop offset="100%" class="gradient-end" />
                                     </linearGradient>
                                 </defs>
 
                                 <!-- Apply the gradient to the path -->
-                                <path fill="url(#gradientHeaderBody2)" d="M16512 9984V0L0 9984H16512Z"/> 
+                                <path fill="url(#gradientHeaderBody2)" d="M16512 9984V0L0 9984H16512Z" />
                             </svg>
                         </div>
                     </div>
@@ -298,13 +682,15 @@
                             <blockquote class="text-body-emphasis text-pretty text-2xl leading-9 fw-semibold">
                                 <!-- Client Review: Add the client's review text here -->
                                 <p class="m-0">
-                                    “Flib's team is exceptional! Our home is always sparkling clean. We highly recommend their services to everyone.”
+                                    “Flib's team is exceptional! Our home is always sparkling clean. We highly recommend
+                                    their services to everyone.”
                                 </p>
                             </blockquote>
 
                             <figcaption class="m-0 mt-7">
                                 <!-- Client's Photoshoot -->
-                                <img src="assets/img/clients-photoshoot/small/member2.jpg" class="rounded-circle border" width="40" height="40" alt="Client's photoshoot">
+                                <img src="assets/img/clients-photoshoot/small/member2.jpg" class="rounded-circle border"
+                                    width="40" height="40" alt="Client's photoshoot">
 
                                 <div class="mt-4 d-flex align-items-center justify-content-center text-base">
                                     <!-- Client's Name -->
@@ -312,7 +698,10 @@
                                         Sarah Miller
                                     </h6>
 
-                                    <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="mx-3 text-body-emphasis" fill="currentColor"> <circle cx="1" cy="1" r="1" /> </svg>
+                                    <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true"
+                                        class="mx-3 text-body-emphasis" fill="currentColor">
+                                        <circle cx="1" cy="1" r="1" />
+                                    </svg>
 
                                     <!-- Client's Profession -->
                                     <div class="text-body">
@@ -345,5 +734,5 @@
 
 </body>
 
- 
+
 </html>
