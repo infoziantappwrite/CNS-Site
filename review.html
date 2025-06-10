@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Review - Rating & Comments</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            min-height: 100vh;
+            background-color: #f9fafb; /* Light gray background */
+            padding-top: 3rem; /* Top/bottom padding */
+            padding-bottom: 3rem;
+            padding-left: 1rem; /* Left/right padding */
+            padding-right: 1rem;
+            box-sizing: border-box; /* Ensures padding doesn't add to total width/height */
+            margin: 0;
+            display: flex; /* For centering content */
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Page Title Section */
+        .page-title-container {
+            max-width: 48rem; /* Max width for content */
+            margin-left: auto; /* Center horizontally */
+            margin-right: auto;
+            text-align: center; /* Center text */
+            margin-bottom: 2.5rem; /* Space below title */
+        }
+
+        .page-title {
+            font-size: 2.25rem; /* Large font size */
+            font-weight: 700; /* Bold font */
+            color: #013243; /* Custom dark blue color */
+            margin-bottom: 0.5rem; /* Space below title */
+        }
+
+        .page-subtitle {
+            color: #4b5563; /* Gray text */
+        }
+
+        /* Review Form Container */
+        .review-form-container {
+            max-width: 48rem; /* Max width for form */
+            margin-left: auto; /* Center horizontally */
+            margin-right: auto;
+            background-color: #ffffff; /* White background */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            border-radius: 0.5rem; /* Rounded corners */
+            padding: 2rem; /* Inner padding */
+        }
+
+        /* Form Spacing (mimicking Tailwind's space-y-6) */
+        .review-form > div:not(:last-child) {
+            margin-bottom: 1.5rem; /* Space between form elements */
+        }
+
+        /* Label Styles */
+        .form-label {
+            display: block; /* Makes label take full width */
+            font-size: 0.875rem; /* Small font size */
+            font-weight: 500; /* Medium font weight */
+            color: #374151; /* Dark gray text */
+            margin-bottom: 0.25rem; /* Space below label */
+        }
+        .form-label.mb-2 { /* Specific rule for rating label */
+            margin-bottom: 0.5rem;
+        }
+
+        /* Input and Textarea Styles */
+        .form-textarea {
+            width: 100%; /* Full width */
+            border: 1px solid #d1d5db; /* Light gray border */
+            border-radius: 0.375rem; /* Slightly rounded corners */
+            padding: 0.5rem 1rem; /* Inner padding */
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+        }
+
+        .form-textarea:focus {
+            outline: none; /* Remove default focus outline */
+            box-shadow: 0 0 0 2px #013243; /* Custom focus ring */
+            border-color: #013243; /* Border color matches ring */
+        }
+
+        /* Star Rating Container */
+        .rating-stars {
+            display: flex; /* Arrange stars in a row */
+            gap: 0.25rem; /* Small gap between stars */
+        }
+
+        /* Star Button Styles */
+        .star-button {
+            font-size: 2.25rem; /* Large star size */
+            transition: transform 0.15s ease-in-out; /* Smooth hover transition */
+            background: none; /* No background */
+            border: none; /* No border */
+            cursor: pointer;
+            padding: 0;
+            color: #d1d5db; /* Default gray color for unselected stars */
+            -webkit-appearance: none; /* Remove default button styling for consistency */
+            -moz-appearance: none;
+            appearance: none;
+            line-height: 1; /* Adjust line height for consistent star appearance */
+        }
+
+        .star-button.filled {
+            color: #fcd34d; /* Yellow color for selected stars */
+        }
+
+        .star-button:hover {
+            transform: scale(1.1); /* Slightly enlarge star on hover */
+        }
+
+        .star-button:focus {
+            outline: none; /* Remove outline on focus */
+        }
+
+        /* Rating Message */
+        .rating-message {
+            font-size: 0.875rem; /* Small font size */
+            color: #013243; /* Custom dark blue color */
+            margin-top: 0.25rem; /* Space above message */
+        }
+
+        /* Submit Button */
+        .submit-button {
+            background-color: #013243; /* Custom dark blue background */
+            color: #ffffff; /* White text */
+            font-weight: 600; /* Semi-bold font */
+            padding: 0.5rem 1.5rem; /* Inner padding */
+            border-radius: 0.375rem; /* Rounded corners */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out; /* Smooth hover transition */
+        }
+
+        .submit-button:hover {
+            background-color: #025a75; /* Slightly lighter blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="page-title-container">
+            <h1 class="page-title">Share Your Review</h1>
+            <p class="page-subtitle">Your feedback helps us improve!</p>
+        </div>
+
+        <div class="review-form-container">
+            <form id="reviewForm" class="review-form">
+
+                <div>
+                    <label class="form-label mb-2">Rating</label>
+                    <div id="ratingStars" class="rating-stars">
+                        </div>
+                    <p id="ratingMessage" class="rating-message"></p>
+                    <input type="hidden" id="rating" name="rating" required value="0">
+                </div>
+
+                <div>
+                    <label for="comments" class="form-label">Additional Comments</label>
+                    <textarea
+                        id="comments"
+                        name="comments"
+                        rows="3"
+                        class="form-textarea"
+                        placeholder="Any other suggestions or feedback? (Min 10 characters)"
+                    ></textarea>
+                </div>
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    Submit Review
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reviewForm = document.getElementById('reviewForm');
+            const pageTitle = document.querySelector(".page-title");
+            const ratingInput = document.getElementById('rating'); // Hidden input for rating value
+            const commentsTextarea = document.getElementById('comments');
+            const ratingStarsContainer = document.getElementById('ratingStars');
+            const ratingMessage = document.getElementById('ratingMessage');
+
+            // Define your backend API base URL
+            const API_BASE_URL = 'https://cns-admin-production.up.railway.app/api/v1'; 
+
+            // --- Review ID Logic ---
+            const params = new URLSearchParams(window.location.search);
+            const reviewId = params.get("id"); // Get review ID from URL query string
+
+            if (!reviewId) {
+                pageTitle.textContent = "Review ID not found";
+                // Disable the form and provide a clear message if ID is missing
+                reviewForm.querySelector('.submit-button').disabled = true;
+                reviewForm.querySelector('.submit-button').textContent = "Review ID Missing";
+                reviewForm.style.pointerEvents = "none"; // Disable all form interactions
+                reviewForm.style.opacity = "0.7";
+                alert("Error: No Review ID found in the URL. Please ensure you clicked a valid review link.");
+                return; // Stop further script execution if no ID
+            } else {
+                pageTitle.textContent = `Review for Service Request ID: ${reviewId}`; // Update title to reflect ID
+            }
+
+            // Mimicking React's useState for form data (local representation)
+            let formState = {
+                rating: 0, // Initialize rating as 0
+                comments: '',
+            };
+
+            // --- Helper Functions ---
+
+            // Function to update the formState and re-render elements
+            function updateFormState(newState) {
+                formState = { ...formState, ...newState };
+                renderStars(); // Re-render stars when rating changes
+                updateRatingMessage(); // Update rating text message
+            }
+
+            // Function to render/update star ratings visually
+            function renderStars() {
+                ratingStarsContainer.innerHTML = ''; // Clear existing stars
+                for (let i = 1; i <= 5; i++) {
+                    const starButton = document.createElement('button');
+                    starButton.type = 'button';
+                    // Apply 'filled' class if the star's value is less than or equal to the current rating
+                    starButton.className = `star-button ${i <= formState.rating ? 'filled' : ''}`;
+                    starButton.setAttribute('aria-label', `Rate ${i} star${i > 1 ? 's' : ''}`);
+                    starButton.textContent = '★'; // The star character
+                    starButton.dataset.rating = i; // Store rating value in a data attribute for easy access
+
+                    // Add click listener to each star button
+                    starButton.addEventListener('click', () => {
+                        updateFormState({ rating: i }); // Update the rating in our state
+                        ratingInput.value = i; // Also update the hidden input's value
+                    });
+                    ratingStarsContainer.appendChild(starButton);
+                }
+            }
+
+            // Function to update the descriptive rating message (Excellent, Very Good, etc.)
+            function updateRatingMessage() {
+                switch (formState.rating) {
+                    case 5: ratingMessage.textContent = 'Excellent!'; break;
+                    case 4: ratingMessage.textContent = 'Very Good'; break;
+                    case 3: ratingMessage.textContent = 'Average'; break;
+                    case 2: ratingMessage.textContent = 'Poor'; break;
+                    case 1: ratingMessage.textContent = 'Very Bad'; break;
+                    default: ratingMessage.textContent = ''; break; // Clear message if no rating
+                }
+            }
+
+            // --- Event Listeners ---
+
+            // Form submission handler
+            reviewForm.addEventListener('submit', async (e) => {
+                e.preventDefault(); // Prevent the default form submission (page reload)
+
+                // Collect current values from inputs right before submission
+                const currentFormValues = {
+                    // These field names MUST match your Mongoose schema fields for update
+                    serviceRating: parseInt(ratingInput.value, 10),
+                    serviceReview: commentsTextarea.value.trim(),
+                };
+
+                // Basic client-side validation
+                if (currentFormValues.serviceRating === 0) {
+                    alert('Please select a rating before submitting your review.');
+                    return; // Stop submission if validation fails
+                }
+                const minReviewLength = 10;
+                const maxReviewLength = 2000;
+                if (currentFormValues.serviceReview.length < minReviewLength || currentFormValues.serviceReview.length > maxReviewLength) {
+                    alert(`Service Review must be between ${minReviewLength} and ${maxReviewLength} characters long.`);
+                    return;
+                }
+
+                try {
+                    // This is the ONLY fetch call now, sending the review and rating for the ID
+                    const response = await fetch(`${API_BASE_URL}/serviceRequest/${reviewId}/review`, {
+                        method: 'PATCH', // Use PUT for updating an existing resource
+                        headers: {
+                            'Content-Type': 'application/json',
+                            // Add any authentication headers if needed (e.g., 'Authorization': `Bearer ${yourAuthToken}`)
+                        },
+                        body: JSON.stringify(currentFormValues),
+                    });
+
+                    if (!response.ok) {
+                        // Attempt to read error message from API response body
+                        const errorData = await response.json().catch(() => ({ message: 'Failed to parse error message' }));
+                        throw new Error(errorData.message || `API submission failed with status: ${response.status}`);
+                    }
+
+                    const data = await response.json(); // Parse the JSON response from your API
+                    console.log('Review Submitted Successfully:', data);
+                    alert('Thank you for your review!'); // User feedback
+
+                    // Reset the form and the internal state after successful submission
+                    reviewForm.reset(); // Clears textareas
+                    updateFormState({ rating: 0, comments: '' }); // Reset rating and comments in state
+                    ratingInput.value = 0; // Ensure hidden rating input is also reset
+                } catch (error) {
+                    console.error('Error submitting review:', error);
+                    alert(`Failed to submit review: ${error.message || 'An unexpected error occurred. Please try again.'}`);
+                }
+            });
+
+            // --- Initial Setup ---
+            // Render stars and message based on initial formState (always 0 initially now)
+            renderStars();
+            updateRatingMessage();
+        });
+    </script>
+</body>
+</html>
